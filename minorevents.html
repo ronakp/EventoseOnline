@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Eventose Minor Events</title>
+      <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <script src="http://code.highcharts.com/highcharts.js"></script>
+      <script src="http://code.highcharts.com/modules/exporting.js"></script>
+      <script src="http://code.highcharts.com/highcharts.js"></script>
+      <script src="http://code.highcharts.com/modules/exporting.js"></script>
+      <script src="http://code.highcharts.com/highcharts.js"></script>
+      <script src="http://code.highcharts.com/modules/exporting.js"></script>
+      <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+      
+      <script>
+        $(function () {
+          
+          $('#container2').highcharts({
+            title: {
+                text: 'Hardware Line Times',
+                x: -20 //center
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            xAxis: {
+                categories: ['12PM', '1PM', '2PM', '3PM', '4PM', '5PM',
+                    '6PM', '7PM', '8PM', '9PM', '10PM', '11PM']
+            },
+            yAxis: {
+                title: {
+                    text: 'People in Line'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '°C'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Hardware Line',
+                data: [50, 45, 33, 15, 36, 12, 42, 23, 12, 32, 23, 41]
+            }]
+          });
+        });
+      </script>
+      <script>$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Meals eaten by People'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: ['Dinner Friday Night', 'Midnight Snack 1', 'Lunch on Saturday', 'Dinner on Saturday', 'Midnight Snack 2'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'People',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' people'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'People',
+            data: [684, 892, 534, 659, 923]
+        }, ]
+    });
+});</script>
+      <script>$(function () {
+    $('#container1').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 1,//null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Event Check In Status'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Checkin',
+            data: [
+                ['Not Checked In',   27.7],
+                ['In Progress',       4.3],
+                ['Checked In',       68],
+                
+               ]
+        }]
+    });
+});
+
+
+</script>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <link href="events.css" rel="stylesheet">
+
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="template.css" rel="stylesheet">
+
+      <!-- CSS -->
+      <style>
+         .ui-widget-header,.ui-state-default, ui-button{
+            background:#b9cd6d;
+            border: 1px solid #b9cd6d;
+            color: #FFFFFF;
+            font-weight: bold;
+         }
+      </style>
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#dialog-1" ).dialog({
+               autoOpen: false,  
+            });
+            $( "#opener" ).click(function() {
+               $( "#dialog-1" ).dialog( "open" );
+            });
+            $("#dialog-close").click(function(){
+               $( "#dialog-1").dialog("close");
+               /*$("#opener").append("
+                  <h1>New Event</h1>
+                  <p>Description</p>
+               ");*/
+            });
+         });
+      </script>
+   </head>
+   <body>
+      <!-- HTML --> 
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Eventose</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+    
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Minor Events</h1>
+          <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+          <div id="container1" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+          <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+
+
+      </div>
+
+      <div id="dialog-1" title="Add Event">Enter Event Information
+         <form>
+            Name:<br/>
+            <input type="text"><br/>
+            Description:<br/>
+            <input type="text" maxlength="100">
+         </form>
+         <br/>
+         <button id="dialog-close">Enter</button>
+      </div>
+      <button class="btn btn-lg btn-default" id="opener">+</button>
+  
+   </body>
+</html>
+   
